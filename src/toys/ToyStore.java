@@ -16,10 +16,18 @@ public class ToyStore
 
 	public ToyStore()
 	{
+            toyList = new ArrayList<Toy>();
 	}
 
 	public void loadToys( String toys )
 	{
+            String[] toyArr = toys.split(" ");
+            
+            
+            
+//            for(String s: toyArr){
+//                toyList.add(new Toy(s));
+//            }
 	}
   
   	public Toy getThatToy( String nm )
