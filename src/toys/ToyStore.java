@@ -21,13 +21,25 @@ public class ToyStore
 
 	public void loadToys( String toys )
 	{
-            String[] toyArr = toys.split(" ");
+            String toyStr[] = toys.split(" ");
+            ArrayList<String> toyArr = new ArrayList<String>();
+            boolean isNew = true;
+            for(int i = 0; i < toyStr.length; i++){
+                toyArr.add(toyStr[i]);
+            }
+            for(int j = 0; j < toyArr.size(); j++){
+                for(int k = 0; k < toyList.size(); k++){
+                    if(toyArr.get(j).equals(toyList.get(k).getName())){
+                        toyList.get(k).setCount(toyList.get(k).getCount()+1);
+                        isNew = false;
+                    }
+                }
+                if(isNew){
+                    toyList.add(new Toy(toyArr.get(j), 1));
+                    isNew = false;
+                }
+            }
             
-            
-            
-//            for(String s: toyArr){
-//                toyList.add(new Toy(s));
-//            }
 	}
   
   	public Toy getThatToy( String nm )
